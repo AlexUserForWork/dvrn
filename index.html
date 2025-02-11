@@ -59,17 +59,46 @@
 
          .contract {
             background: #333;
-            padding: 15px 30px;
+            padding: 12px 20px;
             border-radius: 10px;
-            width: 80%;
-            max-width: 800px;
+            width: 70%;
+            max-width: 600px;
             text-align: center;
             border: 2px solid #00ff00;
             box-shadow: 0 0 10px #00ff00;
             color: white;
-            font-size: 24px;
-            margin: 0 0 40px 0;
+            font-size: 16px;
+            margin: 0;
             font-family: monospace;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+            word-break: break-all;
+            white-space: normal;
+         }
+
+         .contract:hover {
+            background: #444;
+         }
+
+         .contract::after {
+            content: 'Copied!';
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #00ff00;
+            color: black;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+         }
+
+         .contract.copied::after {
+            opacity: 1;
          }
 
          .social-icons {
@@ -97,6 +126,44 @@
             height: 100%;
             pointer-events: none;
          }
+
+         /* Медиа-запрос для мобильных устройств */
+         @media (max-width: 768px) {
+            .title-img {
+               max-width: 90%;
+            }
+
+            .ico6-img {
+               max-width: 150px;
+            }
+
+            .contract {
+               width: 90%;
+               font-size: 12px;
+               padding: 10px 15px;
+            }
+
+            .social-icons {
+               gap: 10px;
+            }
+
+            .social-icons img {
+               width: 35px;
+               height: 35px;
+            }
+
+            body {
+               gap: 15px;
+            }
+
+            .top-group {
+               gap: 30px;
+            }
+
+            .contract-and-icons {
+               gap: 10px;
+            }
+         }
       </style>
    </head>
    <body>
@@ -104,21 +171,24 @@
 
       <img src="images/ico6.png" alt="Icon 6" class="ico6-img" />
 
-      <div class="contract">cyGynaxZiYZ4omkoFVgGzEgtLMBJY3eqcod35QVSDEV</div>
-
-      <div class="social-icons">
-         <a href="https://www.dextools.io/" target="_blank">
-            <img src="images/ico1.jpg" alt="Dextools" />
-         </a>
-         <a href="https://dexscreener.com/" target="_blank">
-            <img src="images/ico2 (1).png" alt="Dexscreener" />
-         </a>
-         <a href="https://telegram.org/" target="_blank">
-            <img src="images/ico3.png" alt="Telegram" />
-         </a>
-         <a href="https://twitter.com/" target="_blank">
-            <img src="images/ico4.png" alt="Twitter" />
-         </a>
+      <div class="contract-and-icons">
+         <div class="contract" id="contract">
+            cyGynaxZiYZ4omkoFVgGzEgtLMBJY3eqcod35QVSDEV
+         </div>
+         <div class="social-icons">
+            <a href="https://www.dextools.io/" target="_blank">
+               <img src="images/ico1.jpg" alt="Dextools" />
+            </a>
+            <a href="https://dexscreener.com/" target="_blank">
+               <img src="images/ico2 (1).png" alt="Dexscreener" />
+            </a>
+            <a href="https://telegram.org/" target="_blank">
+               <img src="images/ico3.png" alt="Telegram" />
+            </a>
+            <a href="https://twitter.com/" target="_blank">
+               <img src="images/ico4.png" alt="Twitter" />
+            </a>
+         </div>
       </div>
       <canvas id="canvas"></canvas>
 
@@ -200,6 +270,23 @@
          }
 
          animate();
+
+         // Добавляем функционал копирования
+         const contractElement = document.getElementById('contract');
+
+         contractElement.addEventListener('click', async () => {
+            try {
+               await navigator.clipboard.writeText(contractElement.textContent);
+               contractElement.classList.add('copied');
+
+               // Убираем класс copied через 2 секунды
+               setTimeout(() => {
+                  contractElement.classList.remove('copied');
+               }, 2000);
+            } catch (err) {
+               console.error('Failed to copy:', err);
+            }
+         });
       </script>
    </body>
 </html>
