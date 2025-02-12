@@ -185,6 +185,28 @@
             height: auto;
             margin: 0 auto;
             display: block;
+            animation: icon-glitch 0.2s infinite;
+         }
+
+         @keyframes icon-glitch {
+            0% {
+               transform: translate(0);
+            }
+            20% {
+               transform: translate(-1px, 1px);
+            }
+            40% {
+               transform: translate(-1px, -1px);
+            }
+            60% {
+               transform: translate(1px, 1px);
+            }
+            80% {
+               transform: translate(1px, -1px);
+            }
+            100% {
+               transform: translate(0);
+            }
          }
 
          .contract-and-icons {
@@ -427,7 +449,7 @@
             color: #00ff00;
             text-shadow: 0 0 5px #00ff00;
             opacity: 0;
-            animation: fadeInOut 3s infinite, glitch 0.2s infinite; /* два типа анимации */
+            animation: fadeInOut 3s infinite, glitch 0.2s infinite;
          }
 
          .animated-text:nth-child(1) {
@@ -473,6 +495,26 @@
             }
             100% {
                transform: translate(0) skew(0);
+            }
+         }
+
+         /* Добавляем медиа-запрос для мобильных устройств */
+         @media (max-width: 768px) {
+            .animated-texts {
+               flex-direction: column; /* в столбик */
+               align-items: center; /* центрируем по горизонтали */
+               gap: 15px; /* уменьшаем отступ между элементами */
+            }
+
+            .animated-text {
+               font-size: 30px; /* уменьшаем размер текста */
+            }
+         }
+
+         /* Для совсем маленьких экранов */
+         @media (max-width: 380px) {
+            .animated-text {
+               font-size: 24px; /* еще меньше текст */
             }
          }
       </style>
