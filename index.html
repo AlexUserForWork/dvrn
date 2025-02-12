@@ -507,6 +507,36 @@
                font-size: 24px;
             }
          }
+
+         .social-icons-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            z-index: 9999;
+         }
+
+         .social-icons-container a {
+            display: block;
+         }
+
+         .social-icons-container a img {
+            width: 38px !important;
+            height: 38px !important;
+            transition: transform 0.3s ease;
+            display: block;
+         }
+
+         .social-icons-container a img:hover {
+            transform: scale(1.2);
+         }
+
+         .social-icons-right {
+            display: none;
+         }
       </style>
    </head>
    <body>
@@ -521,12 +551,18 @@
          <div class="contract" id="contract">
             Gn9Y63oEpxriENauPmamk26E69ytzpnPwBP3gLBUDEV
          </div>
-         <div class="social-icons-left">
+         <div class="social-icons-container">
             <a href="https://www.dextools.io/" target="_blank">
                <img src="images/ico1.jpg" alt="Dextools" />
             </a>
             <a href="https://dexscreener.com/" target="_blank">
                <img src="images/ico2 (1).png" alt="Dexscreener" />
+            </a>
+            <a href="https://telegram.org/" target="_blank">
+               <img src="images/ico3.png" alt="Telegram" />
+            </a>
+            <a href="https://twitter.com/" target="_blank">
+               <img src="images/ico4.png" alt="Twitter" />
             </a>
          </div>
 
