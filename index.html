@@ -117,7 +117,7 @@
             max-width: 800px;
             text-align: center;
             border: 2px solid #00ff00;
-            box-shadow: 0 0 10px #00ff00;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
             color: white;
             font-size: 16px;
             margin: 0;
@@ -127,6 +127,24 @@
             transition: all 0.3s ease;
             white-space: nowrap;
             overflow: visible;
+            animation: glowingContract 2s ease-in-out infinite;
+         }
+
+         @keyframes glowingContract {
+            0% {
+               box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+               border-color: rgba(0, 255, 0, 0.7);
+            }
+            50% {
+               box-shadow: 0 0 20px rgba(0, 255, 0, 0.9),
+                  0 0 40px rgba(0, 255, 0, 0.6), 0 0 80px rgba(0, 255, 0, 0.4),
+                  0 0 100px rgba(0, 255, 0, 0.1);
+               border-color: rgba(0, 255, 0, 1);
+            }
+            100% {
+               box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+               border-color: rgba(0, 255, 0, 0.7);
+            }
          }
 
          .contract:hover {
@@ -277,6 +295,99 @@
                left: 100%;
             }
          }
+
+         /* Стили для иконок в углах */
+         .social-icons-left,
+         .social-icons-right {
+            position: fixed;
+            bottom: 20px;
+            display: flex;
+            gap: 15px; /* еще немного увеличили отступ */
+            z-index: 1;
+         }
+
+         .social-icons-left {
+            left: 20px;
+         }
+
+         .social-icons-right {
+            right: 20px;
+         }
+
+         .social-icons-left img,
+         .social-icons-right img {
+            width: 48px; /* увеличили размер еще в 2 раза */
+            height: 48px;
+            transition: transform 0.3s ease;
+         }
+
+         /* Небольшой эффект при наведении для лучшей кликабельности */
+         .social-icons-left img:hover,
+         .social-icons-right img:hover {
+            transform: scale(1.2);
+         }
+
+         /* Стили для анимированных текстов */
+         .animated-texts {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 20px;
+         }
+
+         .animated-text {
+            font-family: 'ACS', sans-serif;
+            font-size: 40px;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+            opacity: 0;
+            transform: scale(0.8);
+         }
+
+         .animated-text:nth-child(1) {
+            animation: textAnimation 3s infinite 0s;
+         }
+
+         .animated-text:nth-child(2) {
+            animation: textAnimation 3s infinite 1s;
+         }
+
+         .animated-text:nth-child(3) {
+            animation: textAnimation 3s infinite 2s;
+         }
+
+         @keyframes textAnimation {
+            0% {
+               opacity: 0;
+               transform: scale(0.8) translateY(10px);
+               text-shadow: 0 0 10px #00ff00;
+            }
+            20% {
+               opacity: 1;
+               transform: scale(1.2) translateY(0);
+               text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+            }
+            40% {
+               opacity: 1;
+               transform: scale(1) translateY(0);
+               text-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00;
+            }
+            60% {
+               opacity: 1;
+               transform: scale(1.1) translateY(-5px);
+               text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
+            }
+            80% {
+               opacity: 0.5;
+               transform: scale(0.9) translateY(5px);
+               text-shadow: 0 0 10px #00ff00;
+            }
+            100% {
+               opacity: 0;
+               transform: scale(0.8) translateY(10px);
+               text-shadow: 0 0 10px #00ff00;
+            }
+         }
       </style>
    </head>
    <body>
@@ -291,23 +402,26 @@
          <div class="contract" id="contract">
             Gn9Y63oEpxriENauPmamk26E69ytzpnPwBP3gLBUDEV
          </div>
-         <div class="social-icons">
-            <a
-               href="https://www.dextools.io/app/en/solana/pair-explorer/Gn9Y63oEpxriENauPmamk26E69ytzpnPwBP3gLBUDEV"
-               target="_blank"
-            >
+         <div class="social-icons-left">
+            <a href="https://www.dextools.io/" target="_blank">
                <img src="images/ico1.jpg" alt="Dextools" />
             </a>
-            <a
-               href="https://dexscreener.com/solana/Gn9Y63oEpxriENauPmamk26E69ytzpnPwBP3gLBUDEV"
-               target="_blank"
-            >
+            <a href="https://dexscreener.com/" target="_blank">
                <img src="images/ico2 (1).png" alt="Dexscreener" />
             </a>
-            <a href="https://t.me/RunDevSol" target="_blank">
+         </div>
+
+         <div class="animated-texts">
+            <div class="animated-text">RUN!</div>
+            <div class="animated-text">DEV!</div>
+            <div class="animated-text">DON'T STOP!</div>
+         </div>
+
+         <div class="social-icons-right">
+            <a href="https://telegram.org/" target="_blank">
                <img src="images/ico3.png" alt="Telegram" />
             </a>
-            <a href="https://x.com/RunDevSol" target="_blank">
+            <a href="https://twitter.com/" target="_blank">
                <img src="images/ico4.png" alt="Twitter" />
             </a>
          </div>
