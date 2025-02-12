@@ -305,7 +305,7 @@
             pointer-events: none;
          }
 
-         /* Медиа-запрос для мобильных устройств */
+        
          @media (max-width: 768px) {
             .title-img {
                max-width: 90%;
@@ -340,7 +340,7 @@
             src: url('ACS____.TTF') format('truetype');
          }
 
-         /* Фоновый GIF */
+
          .background-layer {
             content: '';
             position: absolute;
@@ -356,13 +356,13 @@
             z-index: -2;
          }
 
-         /* Верхняя линия */
+
          .loading-line-top {
             position: fixed;
             top: 0;
             left: -100%;
             width: 100%;
-            height: 2px; /* сделали тоньше */
+            height: 2px; 
             background: linear-gradient(
                to right,
                transparent,
@@ -381,7 +381,7 @@
             bottom: 0;
             left: -100%;
             width: 100%;
-            height: 2px; /* такая же тонкая */
+            height: 2px; 
             background: linear-gradient(
                to right,
                transparent,
@@ -392,7 +392,7 @@
             box-shadow: 0 0 8px #00ff00;
             z-index: 9999;
             animation: loadingAnimation 2s ease-in-out infinite;
-            animation-delay: 1s; /* задержка для несинхронности */
+            animation-delay: 1s;
          }
 
          @keyframes loadingAnimation {
@@ -404,13 +404,13 @@
             }
          }
 
-         /* Стили для иконок в углах */
+
          .social-icons-left,
          .social-icons-right {
             position: fixed;
             bottom: 20px;
             display: flex;
-            gap: 15px; /* еще немного увеличили отступ */
+            gap: 15px;
             z-index: 1;
          }
 
@@ -424,18 +424,18 @@
 
          .social-icons-left img,
          .social-icons-right img {
-            width: 48px; /* увеличили размер еще в 2 раза */
+            width: 48px; 
             height: 48px;
             transition: transform 0.3s ease;
          }
 
-         /* Небольшой эффект при наведении для лучшей кликабельности */
+
          .social-icons-left img:hover,
          .social-icons-right img:hover {
             transform: scale(1.2);
          }
 
-         /* Стили для анимированных текстов */
+
          .animated-texts {
             display: flex;
             gap: 30px;
@@ -462,7 +462,7 @@
             animation-delay: 2s, 0.2s;
          }
 
-         /* Анимация появления/исчезновения */
+
          @keyframes fadeInOut {
             0%,
             100% {
@@ -476,7 +476,7 @@
             }
          }
 
-         /* Анимация глитча */
+
          @keyframes glitch {
             0% {
                transform: translate(0) skew(0);
@@ -498,23 +498,22 @@
             }
          }
 
-         /* Добавляем медиа-запрос для мобильных устройств */
+
          @media (max-width: 768px) {
             .animated-texts {
-               flex-direction: column; /* в столбик */
-               align-items: center; /* центрируем по горизонтали */
-               gap: 15px; /* уменьшаем отступ между элементами */
+               flex-direction: column;
+               align-items: center;
+               gap: 15px;
             }
 
             .animated-text {
-               font-size: 30px; /* уменьшаем размер текста */
+               font-size: 30px;
             }
          }
 
-         /* Для совсем маленьких экранов */
          @media (max-width: 380px) {
             .animated-text {
-               font-size: 24px; /* еще меньше текст */
+               font-size: 24px;
             }
          }
       </style>
