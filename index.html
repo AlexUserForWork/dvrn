@@ -21,20 +21,31 @@
             justify-content: center;
             gap: 20px;
             overflow: hidden;
+            position: relative;
          }
 
-         .top-group {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 40px;
+         body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('Web 2.gif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            z-index: -1;
          }
 
-         .bottom-group {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: -300px;
+         .top-group,
+         .bottom-group,
+         .contract-and-icons,
+         .contract,
+         .social-icons {
+            position: relative;
+            z-index: 1;
          }
 
          .title-img {
